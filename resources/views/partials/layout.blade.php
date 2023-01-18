@@ -44,7 +44,7 @@
 
     @production
     <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://cdn.usefathom.com/script.js" data-site="YDYPFVXR" defer></script>
+    <script src="https://cdn.usefathom.com/script.js" data-site="YBYXIJVC" defer></script>
     <!-- / Fathom -->
     @endproduction 
 
