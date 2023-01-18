@@ -3,13 +3,11 @@
 @section('content')
     <x-accessibility.skip-to-content-link />
 
-    <x-header-news-bar />
-
     <div class="relative overflow-auto dark:bg-dark-700" id="docsScreen">
         <div class="relative lg:flex lg:items-start">
             <aside class="hidden fixed top-0 bottom-0 left-0 z-20 h-full w-16 bg-gradient-to-b from-gray-100 to-white transition-all duration-300 overflow-hidden lg:sticky lg:w-80 lg:shrink-0 lg:flex lg:flex-col lg:justify-end lg:items-end 2xl:max-w-lg 2xl:w-full dark:from-dark-800 dark:to-dark-700">
                 <div class="relative min-h-0 flex-1 flex flex-col xl:w-80">
-                    <a href="/" class="flex items-center py-8 px-4 lg:px-8 xl:px-14  space-x-5">
+                    <a href="/" class="flex items-center py-8 px-4 lg:px-8  space-x-5">
                         <img
                             class="w-8 h-8 shrink-0 transition-all duration-300 lg:w-12 lg:h-12"
                             src="/img/logomark.min.svg"
@@ -17,10 +15,9 @@
                             width="50"
                             height="52"
                         >
-
-                        <span class="max-w-3xl mx-auto text-3xl text-left">Documentación <span class="text-red-500">Laravel</span></span>
+                        <h1 class="brand_logo    max-w-3xl mx-auto text-3xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
                     </a>
-                    <div class="overflow-y-auto overflow-x-hidden px-4 lg:overflow-hidden lg:px-8 xl:px-14">
+                    <div class="overflow-y-auto overflow-x-hidden px-4 lg:overflow-hidden lg:px-8">
                         <nav id="indexed-nav" class="hidden lg:block lg:mt-4">
                             <div class="docs_sidebar">
                                 {!! $index !!}
@@ -39,7 +36,7 @@
                     <div class="mx-auto px-8 sm:px-16 flex items-center justify-between">
                         <a href="/" class="flex items-center space-x-5">
                             <img class="w-12" src="/img/logomark.min.svg" alt="Documentación Laravel" width="50" height="52">
-                            <span class="max-w-3xl mx-auto text-3xl text-left">Documentación <span class="text-red-500">Laravel</span></span>
+                            <h1 class="brand_logo    max-w-3xl mx-auto text-3xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
                         </a>
                         <div class="flex-1 flex items-center justify-end">
                             <button id="header__sun" onclick="toSystemMode()" title="Switch to system theme" class="relative w-10 h-10 focus:outline-none focus:shadow-outline text-gray-500">
@@ -144,6 +141,18 @@
                             </div> --}}
                         </div>
                     </div>
+
+                    <section class="mt-8 md:mt-16">
+                        <div class="lg:flex items-center justify-center bg-gradient-to-b from-red-500 to-red-600 p-2 text-center text-white text-sm">                        
+                            <div class="mt-px ml-1">
+                                <p>
+                                    La documentación de Laravel esta actualmente traducida en un 20%.
+                                    <br /> Si deseas colaborar, puedes hacerlo a través de nuestro <a href="https://github.com/aprendelaravel/docs/" style="text-decoration-line: underline;">repositorio de Github</a>
+                                </p>
+                            </div>
+                        </div>
+    
+                    </section>
 
                     <section class="mt-8 md:mt-16">
                         <section class="docs_main max-w-prose">

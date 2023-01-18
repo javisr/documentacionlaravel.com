@@ -177,3 +177,7 @@
         }
     }
 }
+
+.brand_logo {
+    color: theme('colors.gray.900');
+}
