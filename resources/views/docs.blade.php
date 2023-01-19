@@ -35,8 +35,8 @@
                 <div class="relative mx-auto w-full py-10 bg-white transition duration-200 dark:bg-dark-700">
                     <div class="mx-auto px-8 sm:px-16 flex items-center justify-between">
                         <a href="/" class="flex items-center space-x-5">
-                            <img class="w-12" src="/img/logomark.min.svg" alt="Documentación Laravel" width="50" height="52">
-                            <h1 class="brand_logo    max-w-3xl mx-auto text-2xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
+                            <img class="w-10 sm:w-12" src="/img/logomark.min.svg" alt="Documentación Laravel" width="50" height="52">
+                            <h1 class="brand_logo    max-w-3xl mx-auto text-xl sm:text-2xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
                         </a>
                         <div class="flex-1 flex items-center justify-end">
                             <button id="header__sun" onclick="toSystemMode()" title="Switch to system theme" class="relative w-10 h-10 focus:outline-none focus:shadow-outline text-gray-500">
