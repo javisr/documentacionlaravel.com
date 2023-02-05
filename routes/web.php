@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocsController;
 
 if (! defined('DEFAULT_VERSION')) {
-    define('DEFAULT_VERSION', '9.x');
+    define('DEFAULT_VERSION', config('settings.default_version'));
 }
 
 Route::get('/', [DocsController::class, 'showRootPage']);
