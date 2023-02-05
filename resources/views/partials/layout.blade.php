@@ -74,7 +74,10 @@
 @include('partials.footer')
 
 <script>
-    var version = '{{ isset($currentVersion) ? $currentVersion : DEFAULT_VERSION }}';
+    @php
+        $currentVersion = isset($currentVersion) ? $currentVersion : config('settings.default_version');
+    @endphp
+    var version = '{{ $currentVersion }}';
 </script>
 
 <script src="{{ mix('js/app.js') }}"></script>
