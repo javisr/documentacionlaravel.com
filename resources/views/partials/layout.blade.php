@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ isset($title) ? $title . ' - ' : null }}Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB</title>
+    <title>{{ isset($title) ? $title . ' - ' : null }}Documentación Laravel En Español - El Framework de PHP para
+        Artesanos de la WEB</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     @if (isset($canonical))
@@ -12,20 +13,24 @@
 
     <!-- Primary Meta Tags -->
     <meta name="title" content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
-    <meta name="description" content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
+    <meta name="description"
+        content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://documentacionlaravel.com/">
     <meta property="og:title" content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
-    <meta property="og:description" content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
+    <meta property="og:description"
+        content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
     <meta property="og:image" content="https://documentacionlaravel.com/img/og-image.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://documentacionlaravel.com/">
-    <meta property="twitter:title" content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
-    <meta property="twitter:description" content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
+    <meta property="twitter:title"
+        content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
+    <meta property="twitter:description"
+        content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
     <meta property="twitter:image" content="https://documentacionlaravel.com/img/og-image.jpg">
 
     <!-- Favicon -->
@@ -46,12 +51,30 @@
     <!-- Fathom - beautiful, simple website analytics -->
     <script src="https://cdn.usefathom.com/script.js" data-site="YBYXIJVC" defer></script>
     <!-- / Fathom -->
-    @endproduction 
+    @endproduction
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLEC1LDXM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            analytics_storage: "denied",
+            functionality_storage: "denied",
+            personalization_storage: "denied",
+            security_storage: "denied"
+        });
+
+        gtag('config', 'G-FDLEC1LDXM');
+    </script>
 
     @php
-        $routesThatAreAlwaysLightMode = collect([
-            'marketing',
-        ])
+    $routesThatAreAlwaysLightMode = collect([
+    'marketing',
+    ])
     @endphp
 
     <script>
@@ -60,27 +83,26 @@
 
     @include('partials.theme')
 </head>
-<body
-    x-data="{
+
+<body x-data="{
         navIsOpen: false,
         searchIsOpen: false,
         search: '',
-    }"
-    class="language-php h-full w-full font-sans text-gray-900 antialiased"
->
+    }" class="language-php h-full w-full font-sans text-gray-900 antialiased">
 
-@yield('content')
+    @yield('content')
 
-@include('partials.footer')
+    @include('partials.footer')
 
-<script>
-    @php
+    <script>
+        @php
         $currentVersion = isset($currentVersion) ? $currentVersion : config('settings.default_version');
     @endphp
     var version = '{{ $currentVersion }}';
-</script>
+    </script>
 
-<script src="{{ mix('js/app.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
 
 </body>
+
 </html>
