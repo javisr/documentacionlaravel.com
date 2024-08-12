@@ -33,10 +33,9 @@ class GenerateSitemap extends Command
     public function handle()
     {
         SitemapGenerator::create(config('app.url'))
-            ->shouldCrawl(function (UriInterface $url) {
+            ->shouldCrawl(fn(UriInterface $url) =>
                 // Crawl everything without "docs" in the path, as we'll crawl the docs separately...
-                return ! Str::contains($url->getPath(), 'docs');
-            })
+                ! Str::contains($url->getPath(), 'docs'))
             ->hasCrawled(function (Url $url) {
                 if ($url->segment(1) === 'team') {
                     $url->setPriority(0.5);
@@ -47,9 +46,7 @@ class GenerateSitemap extends Command
             ->writeToFile(public_path('sitemap_pages.xml'));
 
         SitemapGenerator::create(config('app.url').'/docs/'.config('settings.default_version'))
-            ->shouldCrawl(function (UriInterface $url) {
-                return Str::contains($url->getPath(), 'docs');
-            })
+            ->shouldCrawl(fn(UriInterface $url) => Str::contains($url->getPath(), 'docs'))
             ->writeToFile(public_path('sitemap_docs.xml'));
 
         SitemapIndex::create()

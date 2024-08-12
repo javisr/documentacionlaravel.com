@@ -49,7 +49,7 @@ class Documentation
             $path = base_path('resources/docs/'.$version.'/documentation.md');
 
             if ($this->files->exists($path)) {
-                return $this->replaceLinks($version, (new GithubFlavoredMarkdownConverter())->convert($this->files->get($path)));
+                return static::replaceLinks($version, (new GithubFlavoredMarkdownConverter())->convert($this->files->get($path)));
             }
 
             return null;
@@ -73,7 +73,7 @@ class Documentation
 
                 $content = (new GithubFlavoredMarkdownConverter())->convert($content);
 
-                return $this->replaceLinks($version, $content);
+                return static::replaceLinks($version, $content);
             }
 
             return null;
@@ -96,7 +96,7 @@ class Documentation
             }
 
             return [
-                'pages' => collect(explode(PHP_EOL, $this->replaceLinks($version, $this->files->get($path))))
+                'pages' => collect(explode(PHP_EOL, static::replaceLinks($version, $this->files->get($path))))
                     ->filter(fn ($line) => Str::contains($line, '/docs/{{version}}/'))
                     ->map(fn ($line) => resource_path(Str::of($line)->afterLast('(/')->before(')')->replace('{{version}}', $version)->append('.md')))
                     ->filter(fn ($path) => $this->files->exists($path))
@@ -154,9 +154,7 @@ class Documentation
     public function versionsContainingPage($page)
     {
         return collect(static::getDocVersions())
-            ->filter(function ($version) use ($page) {
-                return $this->sectionExists($version, $page);
-            });
+            ->filter(fn($version) => $this->sectionExists($version, $page));
     }
 
     /**
