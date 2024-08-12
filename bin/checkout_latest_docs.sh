@@ -2,6 +2,7 @@
 
 DOCS_VERSIONS=(
   11.x
+  9.x
 )
 
 for v in "${DOCS_VERSIONS[@]}"; do

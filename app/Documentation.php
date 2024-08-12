@@ -166,6 +166,7 @@ class Documentation
     {
         return [
             '11.x' => '11.x',
+            '9.x' => '9.x',
         ];
     }
 }
