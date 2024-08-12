@@ -142,17 +142,6 @@
                         </div>
                     </div>
 
-                    <section class="mt-8 md:mt-16">
-                        <div class="lg:flex items-center justify-center bg-gradient-to-b from-red-500 to-red-600 p-2 text-center text-white text-sm">                        
-                            <div class="mt-px ml-1">
-                                <p>
-                                    La documentación de Laravel esta actualmente traducida en un 53.6%.
-                                    <br /> Si deseas colaborar, puedes hacerlo a través de nuestro <a href="https://github.com/aprendelaravel/docs/" style="text-decoration-line: underline;">repositorio de Github</a>
-                                </p>
-                            </div>
-                        </div>
-    
-                    </section>
 
                     <section class="mt-8 md:mt-16">
                         <section class="docs_main max-w-prose">

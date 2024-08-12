@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DOCS_VERSIONS=(
-  9.x
+  11.x
 )
 
 for v in "${DOCS_VERSIONS[@]}"; do

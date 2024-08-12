@@ -167,8 +167,7 @@ class Documentation
     public static function getDocVersions()
     {
         return [
-            // 'master' => 'Master',
-            '9.x' => '9.x',
+            '11.x' => '11.x',
         ];
     }
 }

@@ -45,17 +45,18 @@ class DocsController extends Controller
      */
     public function index($version, Documentation $docs)
     {
+        dd('index');
         $major = Str::before($version, '.');
 
         if (Str::before(array_values(Documentation::getDocVersions())[1], '.') + 1 === (int) $major) {
-            $version = $major = 'master';
+            $version = $major = 'main';
         }
 
         if (! $this->isVersion($version)) {
             return redirect('docs/'.config('settings.default_version').'/index.json', 301);
         }
 
-        if ($major !== 'master' && $major < 9) {
+        if ($major !== 'main' && $major < 11) {
             return [];
         }
 

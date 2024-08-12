@@ -48,28 +48,9 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 
     @production
-    <!-- Fathom - beautiful, simple website analytics -->
-    <script src="https://cdn.usefathom.com/script.js" data-site="YBYXIJVC" defer></script>
-    <!-- / Fathom -->
+    <!-- analytics used to be here -->
+    <!-- / analytics -->
     @endproduction
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLEC1LDXM"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag("consent", "default", {
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "denied",
-            personalization_storage: "denied",
-            security_storage: "denied"
-        });
-
-        gtag('config', 'G-FDLEC1LDXM');
-    </script>
 
     @php
     $routesThatAreAlwaysLightMode = collect([
