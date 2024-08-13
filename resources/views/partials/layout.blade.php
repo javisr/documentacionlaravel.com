@@ -48,7 +48,6 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 
     @production
-    <!-- analytics used to be here -->
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLEC1LDXM"></script>
     <script>
@@ -58,7 +57,9 @@
 
     gtag('config', 'G-FDLEC1LDXM');
     </script>
-    <!-- / analytics -->
+   
+    <!-- Plausible -->
+    <script defer data-domain="documentacionlaravel.com" src="https://stats.documentacionlaravel.com/js/script.js"></script>
     @endproduction
 
     @php
