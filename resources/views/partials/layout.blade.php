@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>{{ isset($title) ? $title . ' - ' : null }}Documentación Laravel En Español - El Framework de PHP para
-        Artesanos de la WEB</title>
+    <title>{{ isset($title) ? $title . ' - ' : null }} Laravel En Español - Documentación y guía completa actualizada</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
     @if (isset($canonical))
@@ -12,14 +11,14 @@
     @endif
 
     <!-- Primary Meta Tags -->
-    <meta name="title" content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
+    <meta name="title" content="Laravel En Español - Documentación y guía completa actualizada">
     <meta name="description"
         content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://documentacionlaravel.com/">
-    <meta property="og:title" content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
+    <meta property="og:title" content="Laravel En Español - Documentación y guía completa actualizada">
     <meta property="og:description"
         content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
     <meta property="og:image" content="https://documentacionlaravel.com/img/og-image.jpg">
@@ -28,7 +27,7 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://documentacionlaravel.com/">
     <meta property="twitter:title"
-        content="Documentación Laravel En Español - El Framework de PHP para Artesanos de la WEB">
+        content="Laravel En Español - Documentación y guía completa actualizada">
     <meta property="twitter:description"
         content="Laravel es un framework para aplicaciones web con una sintaxis expresiva y elegante. El Framework sienta las bases para que puedas liberar tu creatividad sin preocuparte por las tareas tediosas y repetitivas.">
     <meta property="twitter:image" content="https://documentacionlaravel.com/img/og-image.jpg">
