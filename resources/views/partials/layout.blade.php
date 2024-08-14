@@ -48,16 +48,6 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
 
     @production
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FDLEC1LDXM"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-FDLEC1LDXM');
-    </script>
-   
     <!-- Plausible -->
     <script defer data-domain="documentacionlaravel.com" src="https://stats.documentacionlaravel.com/js/script.js"></script>
     @endproduction
