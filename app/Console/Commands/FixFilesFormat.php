@@ -7,6 +7,11 @@ use League\CommonMark\Environment\Environment;
 use League\CommonMark\Parser\MarkdownParser;
 use Wnx\CommonmarkMarkdownRenderer\MarkdownRendererExtension;
 use Wnx\CommonmarkMarkdownRenderer\Renderer\MarkdownRenderer;
+use PhpParser\Error;
+use PhpParser\NodeDumper;
+use PhpParser\ParserFactory;
+
+
 class FixFilesFormat extends Command
 {
  
@@ -31,8 +36,22 @@ class FixFilesFormat extends Command
 
         foreach ($documentAST->children() as $child) {
             if($child instanceof \League\CommonMark\Extension\CommonMark\Node\Block\IndentedCode){
+
                 $newNode = new \League\CommonMark\Extension\CommonMark\Node\Block\FencedCode(3, '`', 0);
                 $newNode->setLiteral($child->getLiteral());
+
+                $phpParser = (new ParserFactory())->createForNewestSupportedVersion();
+
+                $isPhpCode = rescue(function () use ($phpParser, $child) {
+                    $phpParser->parse($child->getLiteral());
+                    return true;
+                }, false);  
+
+                if($isPhpCode)
+                {
+                    $newNode->setInfo('php');
+                }
+
                 $child->replaceWith($newNode);
             }
 
