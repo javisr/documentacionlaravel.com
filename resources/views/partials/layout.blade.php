@@ -48,7 +48,7 @@
 
     @production
     <!-- Plausible -->
-    <script defer data-domain="documentacionlaravel.com" src="https://stats.documentacionlaravel.com/js/script.js"></script>
+    <script defer data-domain="documentacionlaravel.com" src="https://stats.documentacionlaravel.com/js/script.outbound-links.js"></script>
     @endproduction
 
     @php
@@ -69,7 +69,7 @@
         searchIsOpen: false,
         search: '',
     }" class="language-php h-full w-full font-sans text-gray-900 antialiased">
-
+wewe
     @yield('content')
 
     @include('partials.footer')
