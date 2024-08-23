@@ -69,7 +69,7 @@
         searchIsOpen: false,
         search: '',
     }" class="language-php h-full w-full font-sans text-gray-900 antialiased">
-wewe
+    
     @yield('content')
 
     @include('partials.footer')
