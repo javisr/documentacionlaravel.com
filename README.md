@@ -1,6 +1,6 @@
-## Laravel Website
+## DocumentacionLaravel.com website
 
-This is the source of the official [Laravel website](https://laravel.com).
+This is the source of the NON official [Laravel documentation in Spanish](https://documentacionlaravel.com).
 
 ## Local Development
 
