@@ -45,7 +45,7 @@ class DocsController extends Controller
      */
     public function index($version, Documentation $docs)
     {
-        dd('index');
+        
         $major = Str::before($version, '.');
 
         if (Str::before(array_values(Documentation::getDocVersions())[1], '.') + 1 === (int) $major) {
