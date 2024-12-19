@@ -5,11 +5,11 @@
 
     <x-header-news-bar />
 
-    <div class="relative overflow-auto dark:bg-dark-700" id="docsScreen">
+    <div class="relative dark:bg-dark-700" id="docsScreen">
         <div class="relative lg:flex lg:items-start">
-            <aside class="hidden fixed top-0 bottom-0 left-0 z-20 h-full w-16 bg-gradient-to-b from-gray-100 to-white transition-all duration-300 overflow-hidden lg:sticky lg:w-80 lg:shrink-0 lg:flex lg:flex-col lg:justify-end lg:items-end 2xl:max-w-lg 2xl:w-full dark:from-dark-800 dark:to-dark-700">
-                <div class="relative min-h-0 flex-1 flex flex-col xl:w-80">
-                    <a href="/" class="flex items-center py-8 px-4 lg:px-8  space-x-5">
+            <aside class="hidden fixed top-0 bottom-0 left-0 z-20 w-16 bg-gradient-to-b from-gray-100 to-white transition-all duration-300 lg:sticky lg:w-80 lg:shrink-0 lg:flex lg:flex-col lg:justify-end lg:items-end 2xl:max-w-lg 2xl:w-full dark:from-dark-800 dark:to-dark-700">
+                <div class="relative max-h-screen overflow-auto flex-1 flex flex-col xl:w-80">
+                    <a href="/" class="flex items-center py-8 px-4 lg:px-8 xl:px-16">
                         <img
                             class="w-8 h-8 shrink-0 transition-all duration-300 lg:w-12 lg:h-12"
                             src="/img/logomark.min.svg"
@@ -17,14 +17,38 @@
                             width="50"
                             height="52"
                         >
-                        <h1 class="brand_logo    max-w-3xl mx-auto text-3xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
+                        <img
+                            src="/img/logotype.min.svg"
+                            alt="Laravel"
+                            class="hidden ml-4 lg:block"
+                            width="114"
+                            height="29"
+                        >
                     </a>
-                    <div class="overflow-y-auto overflow-x-hidden px-4 lg:overflow-hidden lg:px-8">
+                    <div class="px-4 pb-10 lg:px-8 xl:px-16">
                         <nav id="indexed-nav" class="hidden lg:block lg:mt-4">
                             <div class="docs_sidebar">
                                 {!! $index !!}
                             </div>
                         </nav>
+
+                        @php
+                            $promotions = ['cursosdesarrolloweb'];
+                        @endphp
+
+                        <template id="promote-cursosdesarrolloweb">
+                            <div class="mt-4 px-3 py-2 border-dashed border-gray-200 border rounded-lg text-xs leading-loose text-gray-700 lg:block dark:border-gray-400 dark:text-gray-200">
+                                <span class="font-medium">Curso de Laravel</span> en Español. <a class="underline text-red-600" href="https://www.cursosdesarrolloweb.es/paths/ruta-de-aprendizaje-laravel-11?ref=9BYSBHA5YLCC">Infórmate!</a>.
+                            </div>
+                        </template>
+
+                        <script>
+                            const activePromotionTemplate = document.getElementById(
+                                'promote-'+@js($promotions)[Math.floor(Math.random() * {{ count($promotions) }})]
+                            )
+
+                            activePromotionTemplate.replaceWith(activePromotionTemplate.content)
+                        </script>
                     </div>
                 </div>
             </aside>
@@ -36,9 +60,9 @@
             >
                 <div class="relative mx-auto w-full py-10 bg-white transition duration-200 dark:bg-dark-700">
                     <div class="mx-auto px-8 sm:px-16 flex items-center justify-between">
-                        <a href="/" class="flex items-center space-x-5">
-                            <img class="w-10 sm:w-12" src="/img/logomark.min.svg" alt="Documentación Laravel" width="50" height="52">
-                            <h1 class="brand_logo    max-w-3xl mx-auto text-xl sm:text-2xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
+                        <a href="/" class="flex items-center">
+                            <img class="" src="/img/logomark.min.svg" alt="Laravel" width="50" height="52">
+                            <img class="hidden ml-5 sm:block" src="/img/logotype.min.svg" alt="Laravel" width="114" height="29">
                         </a>
                         <div class="flex-1 flex items-center justify-end">
                             <button id="header__sun" onclick="toSystemMode()" title="Switch to system theme" class="relative w-10 h-10 focus:outline-none focus:shadow-outline text-gray-500">
@@ -119,34 +143,65 @@
                                     <select
                                         id="version-switcher"
                                         aria-label="Laravel version"
-                                        class="appearance-none flex-1 w-full px-0 py-1 placeholder-gray-900 tracking-wide bg-white focus:outline-none dark:bg-dark-700 dark:text-gray-400 dark:placeholder-gray-500"
+                                        class="appearance-none flex-1 w-full px-0 py-1 placeholder-gray-900 tracking-wide bg-white border-transparent focus:outline-none dark:bg-dark-700 dark:text-gray-400 dark:placeholder-gray-500"
                                         @change="window.location = $event.target.value"
                                     >
                                         @foreach ($versions as $key => $display)
                                             <option {{ $currentVersion == $key ? 'selected' : '' }} value="{{ url('docs/'.$key.$currentSection) }}">{{ $display }}</option>
                                         @endforeach
                                     </select>
-                                    <img class="absolute inset-y-0 right-0 mt-2.5 w-2.5 h-2.5 text-gray-900 pointer-events-none" id="docs_search__version_arrow" src="/img/icons/drop_arrow.min.svg" alt="">
-                                    <img class="absolute inset-y-0 right-0 mt-2.5 w-2.5 h-2.5 text-gray-900 pointer-events-none" id="docs_search__version_arrow_dark" src="/img/icons/drop_arrow.dark.min.svg" alt="">
+                                    <img class="absolute inset-y-0 right-0 mt-2.5 w-2.5 h-2.5 text-gray-900 pointer-events-none dark:hidden" src="/img/icons/drop_arrow.min.svg" alt="" width="10" height="10">
+                                    <img class="absolute inset-y-0 right-0 mt-2.5 w-2.5 h-2.5 text-gray-900 pointer-events-none hidden dark:block" src="/img/icons/drop_arrow.dark.min.svg" alt="" width="10" height="10">
                                 </div>
                             </div>
                         </div>
                         <div class="relative mt-8 flex items-center justify-end w-full h-10 lg:mt-0">
-                            {{-- <div class="flex-1 flex items-center">
-                                <button
-                                    class="relative inline-flex items-center text-gray-800 transition-colors dark:text-gray-400 w-full"
-                                    @click.prevent="$dispatch('toggle-search-modal')"
-                                >
-                                    <svg class="w-5 h-5 text-gray-700 pointer-events-none transition-colors dark:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                                    <span class="ml-3">Buscar</span>
-                                </button>
-                            </div> --}}
+                            <div class="flex-1 flex items-center">
+                                <button id="docsearch" class="text-gray-800 transition-colors dark:text-gray-400 w-full"></button>
+                            </div>
                         </div>
                     </div>
 
-
                     <section class="mt-8 md:mt-16">
                         <section class="docs_main max-w-prose">
+                            @unless ($currentVersion == 'master' || version_compare($currentVersion, DEFAULT_VERSION) >= 0)
+                                <blockquote>
+                                    <div class="callout">
+                                        <div class="mb-10 max-w-2xl mx-auto px-4 py-8 shadow-lg dark:bg-dark-600 lg:flex lg:items-center">
+                                            <div class="w-20 h-20 mb-6 flex items-center justify-center shrink-0 bg-orange-600 lg:mb-0">
+                                                <div class="opacity-75">
+                                                    {!! Vite::content('resources/images/exclamation.svg') !!}
+                                                </div>
+                                            </div>
+
+                                            <p class="mb-0 lg:ml-4">
+                                                <strong>ADVERTENCIA</strong> Estás explorando la documentación de una próxima versión de Laravel.
+                                                Considera actualizat tu projecto a <a href="{{ route('docs.version', DEFAULT_VERSION) }}">Laravel {{ DEFAULT_VERSION }}</a>.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            @endunless
+
+                            @if ($currentVersion == 'master' || version_compare($currentVersion, DEFAULT_VERSION) > 0)
+                                <blockquote>
+                                    <div class="callout">
+                                        <div class="mb-10 max-w-2xl mx-auto px-4 py-8 shadow-lg lg:flex lg:items-center">
+                                            <div class="w-20 h-20 mb-6 flex items-center justify-center shrink-0 bg-orange-600 lg:mb-0">
+                                                <div class="opacity-75">
+                                                    {!! Vite::content('resources/images/exclamation.svg') !!}
+                                                </div>
+                                            </div>
+
+                                            <p class="mb-0 lg:ml-4">
+                                                <strong>ADVERTENCIA</strong> Estás explorando la documentación de una próxima versión de Laravel.
+                                                La documentación y las características de esta versión están sujetas a cambios.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            @endif
+
                             <x-accessibility.main-content-wrapper>
                                 {!! $content !!}
                             </x-accessibility.main-content-wrapper>

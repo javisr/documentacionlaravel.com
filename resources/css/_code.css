@@ -44,6 +44,7 @@ pre .copyBtn:active {
 }
 
 pre code.torchlight {
+    color: white;
     display: block;
     min-width: max-content;
     padding-top: 1rem;
@@ -54,4 +55,48 @@ pre code.torchlight {
 pre code.torchlight .line {
     padding-left: 1rem;
     padding-right: 1rem;
+}
+
+pre code.torchlight .line-number {
+    @apply pr-4;
+}
+
+.tabbed-code {
+    @apply my-5 bg-dark-500 rounded-md overflow-hidden;
+
+    pre {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+    }
+
+    .tabbed-code-nav {
+        @apply flex px-2 pt-2;
+
+        .tabbed-code-nav-button {
+            @apply px-3 pt-2.5 pb-2.5 rounded-t text-sm text-gray-300;
+
+            &[data-tab="Pest"],
+            &[data-tab="PHPUnit"] {
+                background-size: 1rem;
+                background-repeat: no-repeat;
+                background-position: 0.75rem center;
+            }
+
+            &.active {
+                background-color: rgb(38, 42, 54, 1);
+            }
+        }
+    }
+
+    .tabbed-code-body {
+        background-color: rgb(38, 42, 54, 1);
+
+        .code-container {
+            @apply m-0 rounded-none hidden;
+
+            &.active {
+                @apply block;
+            }
+        }
+    }
 }

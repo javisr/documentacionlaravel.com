@@ -22,10 +22,12 @@
     /* Tables */
     & table th {
         @apply dark:text-gray-200;
+        @apply dark:border-gray-700;
     }
 
     & table td {
         @apply dark:text-gray-400;
+        @apply dark:border-gray-700;
     }
 
     & table td.support-policy-highlight {
@@ -47,10 +49,6 @@
     }
 }
 
-.brand_logo {
-    @apply dark:text-gray-200;
-}
-
 /* Carbon ads */
 #carbonads {
     @apply dark:bg-dark-600;
@@ -61,25 +59,6 @@
 
     & .carbon-poweredby {
         @apply dark:text-gray-500;
-    }
-}
-
-html #docs_search__version_arrow_dark {
-    display: none;
-}
-
-/* Dark mode icons */
-html.dark {
-    #docs_search__version_arrow {
-        display: none;
-    }
-
-    #docs_search__version_arrow_dark,
-    #footer__twitter_dark,
-    #footer__github_dark,
-    #footer__discord_dark,
-    #footer__youtube_dark {
-        display: block;
     }
 }
 

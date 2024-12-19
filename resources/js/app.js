@@ -1,19 +1,23 @@
 import Alpine from 'alpinejs';
 import Focus from '@alpinejs/focus';
+import docsearch from '@docsearch/js';
+import 'instant.page'
 
-import './clipboard';
+import.meta.glob([
+  '../images/**',
+]);
 
 window.Alpine = Alpine;
-
-window.searchComponent = require('./components/search').default;
 
 Alpine.plugin(Focus);
 Alpine.start();
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.querySelector('#docsScreen')) {
-        require('./docs.js');
-    }
-
-    require('./components/accessibility');
+docsearch({
+    container: '#docsearch',
+    appId: algolia_app_id,
+    apiKey: algolia_search_key,
+    indexName: 'laravel',
+    searchParameters: {
+        facetFilters: ['version:' + window.version],
+    },
 });

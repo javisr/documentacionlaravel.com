@@ -44,7 +44,14 @@
     <meta name="theme-color" content="#ffffff">
     <meta name="color-scheme" content="light">
 
-    <link rel="stylesheet" type="text/css" href="{{ mix('css/app.css') }}">
+    <link rel="preconnect" href="https://{{ config('algolia.connections.main.id') }}-dsn.algolia.net" crossorigin />
+
+    <link rel="stylesheet" href="https://use.typekit.net/ins2wgm.css">
+    @vite([
+        'resources/css/app.css',
+        'resources/js/app.js',
+        ...request()->is('docs/*') ? ['resources/js/docs.js'] : [],
+    ])
 
     @production
     <!-- Plausible -->
@@ -52,9 +59,9 @@
     @endproduction
 
     @php
-    $routesThatAreAlwaysLightMode = collect([
-    'marketing',
-    ])
+        $routesThatAreAlwaysLightMode = collect([
+            'marketing',
+        ])
     @endphp
 
     <script>
@@ -62,27 +69,30 @@
     </script>
 
     @include('partials.theme')
+
+    @stack('head')
 </head>
-
-<body x-data="{
+<body
+    x-data="{
         navIsOpen: false,
-        searchIsOpen: false,
-        search: '',
-    }" class="language-php h-full w-full font-sans text-gray-900 antialiased">
-    
-    @yield('content')
+    }"
+    class="w-full h-full font-sans antialiased text-gray-900 language-php"
+    data-instant-intensity="0"
+>
 
-    @include('partials.footer')
+@yield('content')
 
-    <script>
-        @php
-        $currentVersion = isset($currentVersion) ? $currentVersion : config('settings.default_version');
-    @endphp
-    var version = '{{ $currentVersion }}';
-    </script>
+@include('partials.footer')
 
-    <script src="{{ mix('js/app.js') }}"></script>
+<script>
+    var algolia_app_id = '{{ config('algolia.connections.main.id', false) }}';
+    var algolia_search_key = '{{ config('algolia.connections.main.search_key', false) }}';
+    var version = '{{ isset($currentVersion) ? $currentVersion : DEFAULT_VERSION }}';
+</script>
+
+<div class="fixed">
+    <input type="text">
+</div>
 
 </body>
-
 </html>

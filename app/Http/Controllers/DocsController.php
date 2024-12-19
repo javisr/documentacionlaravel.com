@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Documentation;
+use Illuminate\Support\Facades\Vite;
 use Illuminate\Support\Str;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -45,7 +46,6 @@ class DocsController extends Controller
      */
     public function index($version, Documentation $docs)
     {
-        
         $major = Str::before($version, '.');
 
         if (Str::before(array_values(Documentation::getDocVersions())[1], '.') + 1 === (int) $major) {
