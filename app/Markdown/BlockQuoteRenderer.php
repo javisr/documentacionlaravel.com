@@ -34,7 +34,7 @@ class BlockQuoteRenderer implements NodeRendererInterface
 
         $paragraphPartial = Str::after($html, '<p>');
 
-        if (preg_match('/^\[!(NOTE|WARNING)\](?:<br \/>)?/', $paragraphPartial, $matches) === 1) {
+        if (preg_match('/^\[!(NOTE|NOTA|WARNING|ADVERTENCIA)\](?:<br \/>)?/', $paragraphPartial, $matches) === 1) {
             // GitHub styled notes, e.g.,
             // > [!NOTE] Content
             // or
@@ -43,9 +43,11 @@ class BlockQuoteRenderer implements NodeRendererInterface
 
             [$asset, $class] = match ($matches[1]) {
                 'WARNING' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
+                'ADVERTENCIA' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
                 'NOTE' => [Vite::content('resources/images/lightbulb.svg'), 'bg-purple-600'],
+                'NOTA' => [Vite::content('resources/images/lightbulb.svg'), 'bg-purple-600'],
             };
-        } elseif (preg_match('/^<strong>(Note|Warning):?<\/strong>:?(?:<br \/>)?/', $paragraphPartial, $matches) === 1) {
+        } elseif (preg_match('/^<strong>(Note|Nota|Warning):?<\/strong>:?(?:<br \/>)?/', $paragraphPartial, $matches) === 1) {
             // Legacy GitHub styled notes, e.g.,
             // > **Note:** Content
             // or
@@ -64,14 +66,17 @@ class BlockQuoteRenderer implements NodeRendererInterface
 
             [$asset, $class] = match ($matches[1]) {
                 'Warning' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
+                'Advertencia' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
                 'Note' => [Vite::content('resources/images/lightbulb.svg'), 'bg-purple-600'],
+                'Nota' => [Vite::content('resources/images/lightbulb.svg'), 'bg-purple-600'],
             };
-        } elseif (preg_match('/^\{(note|tip|video)\}/', $paragraphPartial, $matches) === 1) {
+        } elseif (preg_match('/^\{(note|nota|tip|video)\}/', $paragraphPartial, $matches) === 1) {
             // Legacy Laravel styled notes, e.g.,
             // > {tip} Content
 
             [$asset, $class] = match ($matches[1]) {
                 'note' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
+                'nota' => [Vite::content('resources/images/exclamation.svg'), 'bg-red-600'],
                 'tip'  => [Vite::content('resources/images/lightbulb.svg'), 'bg-purple-600'],
                 'video' => [Vite::content('resources/images/laracast.svg'), 'bg-blue-600'],
             };

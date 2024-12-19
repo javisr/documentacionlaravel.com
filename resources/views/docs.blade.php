@@ -9,7 +9,7 @@
         <div class="relative lg:flex lg:items-start">
             <aside class="hidden fixed top-0 bottom-0 left-0 z-20 w-16 bg-gradient-to-b from-gray-100 to-white transition-all duration-300 lg:sticky lg:w-80 lg:shrink-0 lg:flex lg:flex-col lg:justify-end lg:items-end 2xl:max-w-lg 2xl:w-full dark:from-dark-800 dark:to-dark-700">
                 <div class="relative max-h-screen overflow-auto flex-1 flex flex-col xl:w-80">
-                    <a href="/" class="flex items-center py-8 px-4 lg:px-8 xl:px-16">
+                    {{-- <a href="/" class="flex items-center py-8 px-4 lg:px-8 xl:px-16">
                         <img
                             class="w-8 h-8 shrink-0 transition-all duration-300 lg:w-12 lg:h-12"
                             src="/img/logomark.min.svg"
@@ -24,6 +24,16 @@
                             width="114"
                             height="29"
                         >
+                    </a> --}}
+                    <a href="/" class="flex items-center py-8 px-4 lg:px-8  space-x-5">
+                        <img
+                            class="w-8 h-8 shrink-0 transition-all duration-300 lg:w-12 lg:h-12"
+                            src="/img/logomark.min.svg"
+                            alt="Laravel"
+                            width="50"
+                            height="52"
+                        >
+                        <h1 class="brand_logo max-w-2xl mx-auto text-2xl text-left">Documentación <span class=" text-red-500">Laravel</span></h1>
                     </a>
                     <div class="px-4 pb-10 lg:px-8 xl:px-16">
                         <nav id="indexed-nav" class="hidden lg:block lg:mt-4">

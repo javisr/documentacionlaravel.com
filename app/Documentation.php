@@ -45,15 +45,37 @@ class Documentation
      */
     public function getIndex($version)
     {
-        return $this->cache->remember('docs.'.$version.'.index', 5, function () use ($version) {
+        $index = $this->cache->remember('docs.'.$version.'.index', 5, function () use ($version) {
             $path = base_path('resources/docs/'.$version.'/documentation.md');
 
             if ($this->files->exists($path)) {
-                return static::replaceLinks($version, (new GithubFlavoredMarkdownConverter())->convert($this->files->get($path)));
+                return $this->replaceLinks($version, (new GithubFlavoredMarkdownConverter())->convert($this->files->get($path)));
             }
 
             return null;
         });
+
+        $currentPath = '/'.request()->path();
+
+        $currentPath = $currentPath == '/docs/11.x' ? '/docs/11.x/installation' : $currentPath;
+
+        $index = str_replace(
+            "<li>\n<a href=\"$currentPath\">",
+            $activeElement = "<li class=\"active\">\n<a href=\"$currentPath\">",
+            $index
+        );
+
+        $parentH2Text = str($index)
+            ->before($activeElement)
+            ->afterLast('<h2>')
+            ->before('</h2>')
+            ->toString();
+
+        return str_replace(
+            "<li>\n<h2>$parentH2Text</h2>",
+            "<li class=\"sub--on\">\n<h2>$parentH2Text</h2>",
+            $index
+        );
     }
 
     /**
@@ -73,7 +95,7 @@ class Documentation
 
                 $content = (new GithubFlavoredMarkdownConverter())->convert($content);
 
-                return static::replaceLinks($version, $content);
+                return $this->replaceLinks($version, $content);
             }
 
             return null;
@@ -96,7 +118,7 @@ class Documentation
             }
 
             return [
-                'pages' => collect(explode(PHP_EOL, static::replaceLinks($version, $this->files->get($path))))
+                'pages' => collect(explode(PHP_EOL, $this->replaceLinks($version, $this->files->get($path))))
                     ->filter(fn ($line) => Str::contains($line, '/docs/{{version}}/'))
                     ->map(fn ($line) => resource_path(Str::of($line)->afterLast('(/')->before(')')->replace('{{version}}', $version)->append('.md')))
                     ->filter(fn ($path) => $this->files->exists($path))
@@ -154,7 +176,9 @@ class Documentation
     public function versionsContainingPage($page)
     {
         return collect(static::getDocVersions())
-            ->filter(fn($version) => $this->sectionExists($version, $page));
+            ->filter(function ($version) use ($page) {
+                return $this->sectionExists($version, $page);
+            });
     }
 
     /**

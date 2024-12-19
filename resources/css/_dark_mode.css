@@ -49,6 +49,11 @@
     }
 }
 
+.brand_logo {
+    @apply dark:text-gray-200;
+}
+
+
 /* Carbon ads */
 #carbonads {
     @apply dark:bg-dark-600;
