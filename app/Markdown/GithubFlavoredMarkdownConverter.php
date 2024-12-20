@@ -14,7 +14,7 @@ use League\CommonMark\Extension\Strikethrough\StrikethroughExtension;
 use League\CommonMark\Extension\Table\TableExtension;
 use League\CommonMark\Extension\TaskList\TaskListExtension;
 use League\CommonMark\MarkdownConverter;
-use Torchlight\Commonmark\V2\TorchlightExtension;
+use Tempest\Highlight\CommonMark\HighlightExtension;
 
 /**
  * Converts GitHub Flavored Markdown to HTML.
@@ -36,7 +36,7 @@ class GithubFlavoredMarkdownConverter extends MarkdownConverter
         $environment->addExtension(new TaskListExtension());
         $environment->addExtension(new UnfencedExtension());
         $environment->addExtension(new AttributesExtension());
-        $environment->addExtension(new TorchlightExtension());
+        $environment->addExtension(new HighlightExtension());
 
         $environment->addRenderer(BlockQuote::class, new BlockQuoteRenderer);
         $environment->addEventListener(DocumentParsedEvent::class, new ConfigureHeadingLinks);

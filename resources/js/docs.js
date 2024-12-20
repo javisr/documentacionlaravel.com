@@ -1,4 +1,3 @@
-import './clipboard';
 import './theme'
 
 document.addEventListener('DOMContentLoaded', () => {
