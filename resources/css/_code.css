@@ -1,16 +1,26 @@
 @import "../../vendor/tempest/highlight/src/Themes/Css/dracula.css";
 
-pre {
-    padding: 1rem;
-    padding-right: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    overflow-x: auto;
-	tab-size: 4;
-	white-space: pre;
-	word-spacing: normal;
-	word-break: normal;
-	word-wrap: normal;
-    box-shadow: 0 1px 1px rgb(0 0 0 / 8%);
-    @apply relative bg-dark-600 rounded-lg;
+
+.code-container  {
+
+    font-size: .8rem;
+    font-weight: 500;
+    line-height: 1.9;
+    color: #232323;
+    font-family: source-code-pro, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+
+    pre {
+        padding: 1rem;
+        padding-right: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        overflow-x: auto;
+        tab-size: 4;
+        white-space: pre;
+        word-spacing: normal;
+        word-break: normal;
+        word-wrap: normal;
+        box-shadow: 0 1px 1px rgb(0 0 0 / 8%);
+        @apply relative bg-dark-600 rounded-lg;
+    };
 }
