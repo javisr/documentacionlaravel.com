@@ -16,8 +16,9 @@ docsearch({
     container: '#docsearch',
     appId: algolia_app_id,
     apiKey: algolia_search_key,
-    indexName: 'laravel',
-    searchParameters: {
-        facetFilters: ['version:' + window.version],
-    },
+    indexName: 'umentacionlaravel',
+
+    // searchParameters: {
+    //     facetFilters: ['version:' + window.version],
+    // },
 });
