@@ -11,9 +11,6 @@
             <p class="mt-6 text-xs text-gray-700 {{ $is_docs_page ? 'dark:text-gray-400' : '' }}">
                 <a href="https://laravel.com">Laravel</a> es una marca registrada de Taylor Otwell. Copyright &copy; 2011-{{ now()->format('Y') }} Laravel LLC.
             </p>
-            <p class="mt-6 text-xs text-gray-700 {{ $is_docs_page ? 'dark:text-gray-400' : '' }}">
-                La sintaxis del código es generada por <a href="https://torchlight.dev">Torchlight</a>
-            </p>
         </div>
     </div>
 </footer>
