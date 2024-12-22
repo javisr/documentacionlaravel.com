@@ -174,7 +174,7 @@
 
                     <section class="mt-8 md:mt-16">
                         <section class="docs_main max-w-prose">
-                            @unless ($currentVersion == 'master' || version_compare($currentVersion, DEFAULT_VERSION) >= 0)
+                            @unless ($currentVersion == 'master' || version_compare($currentVersion, config('settings.default_version')) >= 0)
                                 <blockquote>
                                     <div class="callout">
                                         <div class="mb-10 max-w-2xl mx-auto px-4 py-8 shadow-lg dark:bg-dark-600 lg:flex lg:items-center">
@@ -186,14 +186,14 @@
 
                                             <p class="mb-0 lg:ml-4">
                                                 <strong>ADVERTENCIA</strong> Estás explorando la documentación de una próxima versión de Laravel.
-                                                Considera actualizat tu projecto a <a href="{{ route('docs.version', DEFAULT_VERSION) }}">Laravel {{ DEFAULT_VERSION }}</a>.
+                                                Considera actualizat tu projecto a <a href="{{ route('docs.version', config('settings.default_version')) }}">Laravel {{ config('settings.default_version') }}</a>.
                                             </p>
                                         </div>
                                     </div>
                                 </blockquote>
                             @endunless
 
-                            @if ($currentVersion == 'master' || version_compare($currentVersion, DEFAULT_VERSION) > 0)
+                            @if ($currentVersion == 'master' || version_compare($currentVersion, config('settings.default_version')) > 0)
                                 <blockquote>
                                     <div class="callout">
                                         <div class="mb-10 max-w-2xl mx-auto px-4 py-8 shadow-lg lg:flex lg:items-center">
