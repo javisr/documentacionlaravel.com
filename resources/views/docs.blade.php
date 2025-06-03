@@ -22,14 +22,14 @@
                         </nav>
 
                         @php
-                            $promotions = ['cursosdesarrolloweb'];
+                            $promotions = [];
                         @endphp
 
-                        <template id="promote-cursosdesarrolloweb">
+                        {{-- <template id="promote-cursosdesarrolloweb">
                             <div class="mt-4 px-3 py-2 border-dashed border-gray-200 border rounded-lg text-xs leading-loose text-gray-700 lg:block dark:border-gray-400 dark:text-gray-200">
                                 <span class="font-medium">El tiempo es oro.</span> <br/> Aprende más rápido en <br /><a class="underline text-red-600" href="https://www.cursosdesarrolloweb.es/paths/ruta-de-aprendizaje-laravel-11?ref=9BYSBHA5YLCC">cursosdesarrolloweb.es</a>.
                             </div>
-                        </template>
+                        </template> --}}
 
                         <script>
                             const activePromotionTemplate = document.getElementById(
