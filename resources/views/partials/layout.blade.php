@@ -53,6 +53,11 @@
         ...request()->is('docs/*') ? ['resources/js/docs.js'] : [],
     ])
 
+    @production
+    <!-- ahrefs -->
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="F9c1l9nqwoAZsdGd8JguJg" async></script>
+    @endproduction
+
     @php
         $routesThatAreAlwaysLightMode = collect([
             'marketing',
